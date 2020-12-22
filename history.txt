@@ -1,0 +1,1278 @@
+    1  vi /etc/sudoers
+    2  hostnamectl set-hostname centos
+    3  vi /etc/hostname
+    4  clear
+    5  ifconfig
+    6  vi /etc/hosts
+    7  clear
+    8  ls -ltr
+    9  hostname centos
+   10  ls -ltr
+   11  systemctl stop firewalld
+   12  systemctl disable firewalld
+   13  vi /etc/sysconfig/selinux
+   14  setenforce 0
+   15  vi /etc/fstab
+   16  swapoff -a
+   17  clear
+   18  init 6
+   19  clear
+   20  yum update -y
+   21  service NetworkManager status
+   22  ifconfig
+   23  init 6
+   24  vi /etc/sysconfig/network-scripts
+   25  cd /etc/sysconfig
+   26  ls
+   27  cd network-scripts
+   28  ls
+   29  vi ifcfg-ens33
+   30  init 6
+   31  yum update -y
+   32  ls -ltr
+   33  clear
+   34  init 0
+   35  hostnamectl set-hostname master
+   36  ifconfig
+   37  vi /etc/hosts
+   38  init 6
+   39  ifconfig
+   40  hostname
+   41  init 0
+   42  ifconfig ens33
+   43  vi /etc/hosts
+   44  timedatectl set-ntp true
+   45  date
+   46  clear
+   47  cat /etc/fstab
+   48  sestatus
+   49  yum install epel-release -y
+   50  yum update -y
+   51  yum install epel-release -y
+   52  yum update -y
+   53  init 0
+   54  vi /etc/hosts
+   55  cat /etc/hosts
+   56  ping master.192.168.229.135
+   57  ping master.192.168.229.135.xip,io
+   58  ping master.192.168.229.135.xip.io
+   59  yum update -y
+   60  yum install epel-release -y
+   61  yum update -y
+   62  yum install docker git -y
+   63  systemctl start docker ; sudo systemctl enable docker
+   64  systemctl status docker
+   65  docker version
+   66  docker run -i -t ubuntu /bin/bash
+   67  docker images
+   68  docker ps
+   69  docker stop tender_hopper
+   70  docker ps
+   71  docker ps -a
+   72  docker run -i -t ubuntu /bin/bash
+   73  docker ps
+   74  docker ps -a
+   75  docker images
+   76  docker rm f
+   77  docker ps -a
+   78  docker rm 0
+   79  docker ps -a
+   80  docker rm 4
+   81  docker ps -a
+   82  dcoker images
+   83  docker images
+   84  clear
+   85  docker run -d jpetazzo/clock
+   86  docker ps
+   87  docker exec -it  e sh
+   88  docker ps
+   89  docker stop e
+   90  docker ps
+   91  docker ps -a
+   92  docker start e
+   93  docker ps
+   94  docker stop e
+   95  docker ps -a
+   96  docker ps
+   97  docker start e
+   98  docker ps
+   99  docker logs e
+  100  clear
+  101  docker logs --tail 5 e
+  102  docker ps
+  103  docker run -d ubuntu sleep 1000000
+  104  clear
+  105  docker ps
+  106  docker ps -a
+  107  docker ps -q
+  108  docker kill $(docker ps -q)
+  109  docker ps
+  110  docker rm $(docker ps -aq)
+  111  docker ps -1
+  112  docker ps -a
+  113  clear
+  114  docker run -d ubuntu sleep 1000000
+  115  clear
+  116  docker ps 
+  117  docker exec b sh
+  118  docker ps 
+  119  docker log b
+  120  docker logs b
+  121  clear
+  122  docker ps -c
+  123  docker ps 
+  124  docker exec b sh
+  125  docker search tomcat
+  126  docker search zookeeper
+  127  clear
+  128  docker search xcode
+  129  docker search swift
+  130  docker search ios
+  131  docker search fastlane
+  132  docker imaghes
+  133  docker images
+  134  docker pull debian:jessie
+  135  docker images
+  136  docker pull debian:jessie
+  137  ls 
+  138  clear
+  139  docker ps
+  140  docker kill b
+  141  docker ps
+  142  docker ps -a
+  143  docker rm b
+  144  docker ps -a
+  145  mkdir myimage
+  146  cd myimage/
+  147  vi Dockerfile
+  148  cat Dockerfile 
+  149  docker build -t figlet:1.0 .
+  150  vi Dockerfile 
+  151  docker build -t figlet:1.0 .
+  152  docker images
+  153  docker ps
+  154  docker run figlet
+  155  clear
+  156  vi Dockerfile 
+  157  docker build -t centos-image:1:0 .
+  158  docker build -t centosimage:1:0 .
+  159  docker build -t centosimage:1.0 .
+  160  vi Dockerfile 
+  161  docker build -t centosimage:1.0 .
+  162  docker images
+  163  docker run centosimage
+  164  docker run centosimage:1.0
+  165  docker ps 
+  166  docker run i-t centosimage:1.0
+  167  docker run -it centosimage:1.0
+  168  docker ps 
+  169  docker run -d centosimage:1.0
+  170  docker kill 5
+  171  docker ps
+  172  docker run -it centosimage:1.0
+  173  docker ps -a
+  174  docker kill $(dicker ps -aq)
+  175  docker kill $(docker ps -aq)
+  176  docker ps -a
+  177  docker ps -aq
+  178  docker rm $(docker ps -aq)
+  179  docker ps -aq
+  180  docker run -it centosimage:1.0
+  181  docker ps
+  182  docker ps -a
+  183  docker search macos
+  184  ls
+  185  ls -a
+  186  clear
+  187  docker ps -a
+  188  docker rm 6
+  189  docker ps -a
+  190  docker images
+  191  cd ..
+  192  mkdir figlet-example
+  193  cd figlet-example/
+  194  vi Dockerfile
+  195  docker build -t figlet:2.0 .
+  196  docker images
+  197  docker run figlet:2.0
+  198  docker run figlet:2.0 figlet Shahid
+  199  docker run figlet:2.0 echo hello
+  200  clear
+  201  cd ..
+  202  mkdir copy-example
+  203  cd copy-example/
+  204  vi hello.c
+  205  ls
+  206  cd copy-example/
+  207  ls
+  208  vi hello.c
+  209  vi Dockerfile
+  210  cat Dockerfile 
+  211  docker build -t mycopy
+  212  docker build -t mycopy .
+  213  vi Dockerfile 
+  214  docker build -t mycopy .
+  215  docker run mycopy
+  216  docker images
+  217  docker build -t mycopy:1.0 .
+  218  docker images
+  219  vi hello.c
+  220  cat hello.c
+  221  cat Dockerfile 
+  222  dockert build -t helloimg:1.0 .
+  223  docker build -t helloimg:1.0 .
+  224  vi Dockerfile 
+  225  docker build -t helloimg:1.0 .
+  226  vi hello.c
+  227  cat hello.c 
+  228  vi hello.c 
+  229  cat hello.c 
+  230  docker build -t helloimg:1.0 .
+  231  vi hello.c 
+  232  docker build -t helloimg:1.0 .
+  233  dicker run helloimg:1.0
+  234  docker run helloimg:1.0
+  235  ls -ltr .hello.c.swp 
+  236  rm -fr .hello.c.swp 
+  237  vi hello.c 
+  238  clear
+  239  docker images
+  240  docker run -d tiktok jpetazzo/clock
+  241  docker run -d --name tiktok jpetazzo/clock
+  242  docker ps
+  243  docker inspect tiktok
+  244  docker inspect --format '{{json .NetworkSettings}}' ticktok
+  245  docker inspect --format '{{json .Created}}' ticktok
+  246  docker inspect --format '{{json .Created}}' ticktock
+  247  dock ps
+  248  docker ps
+  249  docker inspect --format '{{ json .Created }}' ticktok
+  250  docker inspect --format '{{ json .Created }}' tiktok
+  251  docker inspect --format '{{json .NetworkSettings}}' tiktok
+  252  docker inspect --format '{{json .NetworkSettings.IPAddress}}' tiktok
+  253  docker inspect --format '{{json .NetworkSettings.Netyworks.bridge.IPAddress}}' tiktok
+  254  docker inspect --format '{{json .NetworkSettings.Networks.bridge.IPAddress}}' tiktok
+  255  docker kill $(docker ps -aq)
+  256  docker kill $(docker ps -q)
+  257  docker ps
+  258  docker ps -a
+  259  docker rm $(docker ps -aq)
+  260  docker images
+  261  docker ps -a
+  262  docker run -d ngnix
+  263  docker run -d -P ngnix
+  264  docker run -d -P nginx
+  265  docker ps
+  266  ifconfig
+  267  clear
+  268  docker run -d -P nginx
+  269  docker ps
+  270  docker run -d -p 1000:80  nginx
+  271  docker ps
+  272  docker run -d -p 32768:80  nginx
+  273  cd ..
+  274  mkdir apache
+  275  cd apache/
+  276  vi Dockerfile
+  277  cd ..
+  278  ls
+  279  cd myimage/
+  280  ls
+  281  cat Dockerfile 
+  282  cd ..
+  283  cd copy-example/
+  284  cat Dockerfile 
+  285  cd ..
+  286  cd apache/
+  287  vi Dockerfile 
+  288  docker build -t apache .
+  289  vi Dockerfile 
+  290  cat Dockerfile 
+  291  vi Dockerfile 
+  292  docker build -t apache .
+  293  vi Dockerfile 
+  294  cat Dockerfile 
+  295  ls
+  296  cd apache/
+  297  vi Dockerfile 
+  298  docker build -t apache .
+  299  cd ..
+  300  ls
+  301  cd copy-example/
+  302  cat Dockerfile 
+  303  cd ..
+  304  cd apache/
+  305  cat Dockerfile 
+  306  clear
+  307  vi Dockerfile 
+  308  docker build -t apache .
+  309  cd .
+  310  cd ..
+  311  ls
+  312  cg copy-example/
+  313  cd copy-example/
+  314  ls
+  315  cat Dockerfile 
+  316  docker images
+  317  clear
+  318  docker images
+  319  docker build helloimg .
+  320  docker build -t helloimg .
+  321  clear
+  322  cat Dockerfile 
+  323  cd ..
+  324  cd apache/
+  325  rm Dockerfile 
+  326  ls
+  327  vi Dockerfile
+  328  cat Dockerfile 
+  329  docker build -t apache .
+  330  vi Dockerfile 
+  331  docker build -t apache .
+  332  vi Dockerfile 
+  333  docker build -t apache .
+  334  docker run -d apache
+  335  docker ps
+  336  docker ps -a
+  337  clear
+  338  vi Dockerfile 
+  339  docker build -t apache .
+  340  docker run -d apache
+  341  docker ps -a
+  342  docker ps
+  343  docker kill $(docker ps)
+  344  docker kill $(docker ps -q)
+  345  clear
+  346  docker ps
+  347  vi Dockerfile 
+  348  docker build -t apache .
+  349  docker run -d apache
+  350  docker ps
+  351  docker logs 9
+  352  vi Dockerfile 
+  353  docker build -t apache .
+  354  docker run -d apache
+  355  docker logs b
+  356  vi Dockerfile 
+  357  docker build -t apache .
+  358  docker run -d -p 1000 apache
+  359  docker logs b
+  360  docker logs f
+  361  docker ps 
+  362  apache logs f
+  363  docker logs f
+  364  docker ps -a
+  365  docker logs fa
+  366  docker run -d -p 1000:80 apache
+  367  docker ps
+  368  docker kill fa
+  369  docker ps
+  370  vi Dockerfile 
+  371  docker ps
+  372  docker kill ae
+  373  clear
+  374  docker build -t apache .
+  375  docker run -d -p 2000:80 apache
+  376  docker ps
+  377  docker run -d -P apache
+  378  docker ps 
+  379  history
+  380  docker ps 
+  381  docker kill $(docker ps -q)
+  382  docker rm $(docker ps -aq)
+  383  docker ps -a
+  384  docker images
+  385  cd ..
+  386  mkdir mytomcat
+  387  cd mytomcat
+  388  ls
+  389  wget https://atgensoft.com/training/Tomcat_Excercise_Data.zip
+  390  wget https://atgensoft.com/training/Tomcat_Excercise_Data.zip --no-check-certificate
+  391  wget https://atgensoft.com/training/Tomcat_Exercise_Data.zip --no-check-certificate
+  392  ls
+  393  unzip Tomcat_Exercise_Data.zip 
+  394  ls
+  395  rm -fr __MACOSX Tomcat_Exercise_Data.zip 
+  396  ls
+  397  cd Tomcat_Exercise_Data/
+  398  ls
+  399  cd ..
+  400  mv Tomcat_Exercise_Data/apache-tomcat-6.0.44
+  401  ls
+  402  mv Tomcat_Exercise_Data/apache-tomcat-6.0.44 .
+  403  ls
+  404  mv Tomcat_Exercise_Data/jre-8u45-linux-x64.rpm 
+  405  mv Tomcat_Exercise_Data/jre-8u45-linux-x64.rpm .
+  406  ls
+  407  rm -fr Tomcat_Exercise_Data/
+  408  ls
+  409  docker search centos6.6
+  410  clear
+  411  vi Dockerfile
+  412  ls
+  413  pwd
+  414  vi Dockerfile 
+  415  ls
+  416  docker build -t mytomcat .
+  417  docker search centos6
+  418  docker search centos6.6
+  419  vi Dockerfile 
+  420  cat Dockerfile 
+  421  vi Dockerfile 
+  422  docker build -t mytomcat .
+  423  vi Dockerfile 
+  424  docker build -t mytomcat .
+  425  vi Dockerfile 
+  426  ls
+  427  cd apache/
+  428  cat Dockerfile 
+  429  cd ..
+  430  cd mytomcat/
+  431  vi Dockerfile 
+  432  docker build -t mytomcat .
+  433  clear
+  434  vi Dockerfile 
+  435  docker build -t mytomcat .
+  436  clear
+  437  vi Dockerfile 
+  438  docker build -t mytomcat .
+  439  vi Dockerfile 
+  440  docker build -t mytomcat .
+  441  vi Dockerfile 
+  442  docker build -t mytomcat .
+  443  docker images
+  444  clear
+  445  vi Dockerfile 
+  446  docker build -t mytomcat .
+  447  vi Dockerfile 
+  448  docker build -t mytomcat .
+  449  clear
+  450  docker run -t -P mytomcat
+  451  docker run -d -P mytomcat
+  452  docker ps
+  453  clear
+  454  docker run -d -P mytomcat
+  455  docker logs 8d
+  456  vi Dockerfile 
+  457  docker build -t mytomcat .
+  458  docker run -d -P mytomcat
+  459  docker logs 29
+  460  clear
+  461  vi Dockerfile 
+  462  docker ps -a
+  463  docker kill $(docker ps -q)
+  464  docker ps
+  465  docker rm $(docker ps -aq)
+  466  docker ps -a
+  467  docker run -d -P mytomcat
+  468  docker ps
+  469  docker logs 7c
+  470  vi Dockerfile 
+  471  docker build -t mytomcat .
+  472  docker run -d -P mytomcat
+  473  docker ps
+  474  docker logs 33
+  475  vi Dockerfile 
+  476  docker build -t mytomcat .
+  477  docker run -d -P mytomcat
+  478  docker ps
+  479  docker logs 7f
+  480  vi Dockerfile 
+  481  docker build -t mytomcat .
+  482  clear
+  483  docker build -t mytomcat .
+  484  vi Dockerfile 
+  485  docker build -t mytomcat .
+  486  docker run -d -P mytomcat
+  487  docker ps
+  488  docker logs dcd
+  489  vi Dockerfile 
+  490  docker build -t mytomcat .
+  491  docker run -d -P mytomcat
+  492  docker ps
+  493  docker logs b1
+  494  clear
+  495  docker ps
+  496  docker kill b1
+  497  clear
+  498  docker rm $(docker ps -aq)
+  499  clear
+  500  docker ps -a
+  501  docker netwrok ls
+  502  cd ..
+  503  docker network ls
+  504  docker network create dev
+  505  docker network ls
+  506  docker run -d --name search --net deb tomcat
+  507  docker run -d --name search --net dev tomcat
+  508  docker ps
+  509  docker run -it --net dev apline sh
+  510  docker run -it --net dev alpine sh
+  511  docker kill $(docker ps -aq)
+  512  docker rm  $(docker ps -aq)
+  513  docker ps
+  514  docker ps -a
+  515  docker network ls
+  516  clear
+  517  docker run -d -P --net dev jpetazzo/trainingwheels
+  518  docker ps
+  519  docker run --net dev --name redis -d redis
+  520  docker ps
+  521  docker kill $(docker ps -q)
+  522  docker rm $(docker ps -aq)
+  523  docker ps -a
+  524  docker network rm dev
+  525  docker network ls
+  526  wget https://tomcat.apache.org/tomcat-7.0-doc/appdev/sample/sample.war
+  527  chmod 777 sample.war
+  528  docker run -d -P -v /root/sample.war:/home/tom/webapps/sample.war mytomcat
+  529  docker ps
+  530  clear
+  531  ls
+  532  mkdir examples
+  533  mv apche examples
+  534  mv apache examples
+  535  mv copy-example examples
+  536  mv myimage examples
+  537  mv mytomcat examples/
+  538  cd examples/
+  539  ls
+  540  git init
+  541  ls 
+  542  ls -a
+  543  echo "# Openshift" >> README.md
+  544  ls
+  545  git add README.md
+  546  git commit -m "First commit"
+  547  git config --global user.email "you@example.com"
+  548  git config --global user.email "sahidakhtar1@gmail.com"
+  549  C
+  550   git config --global user.name "Sahid"
+  551  git status
+  552  git add .
+  553  git status
+  554  clear
+  555  git commit -m "Added exmaples"
+  556  git remote add origin https://github.com/sahidakhtar1/openshift.git
+  557  git branch -M main
+  558  git push -u origin main
+  559  clear
+  560  docker ps -a
+  561  docker rm 56
+  562  docker kill 56
+  563  docker rm 56
+  564  docker images
+  565  clear
+  566  docker ps
+  567  docker ps -a
+  568  clear
+  569  sudo mkdir -p /etc/docker /etc/containers
+  570  vi /etc/containers/registries.conf 
+  571  vi /etc/docker/daemon.json 
+  572  systemctl restart docker
+  573  echo "net.ipv4.ip_forward = 1" | tee -a /etc/sysctl.conf
+  574  sysctl -p
+  575  wget https://github.com/openshift/origin/releases/download/v3.11.0/openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz
+  576  ls
+  577  git add .
+  578  git commit -m "Download openshift file"
+  579  git push
+  580  clear
+  581  tar xvf openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz 
+  582  ls
+  583  cd openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit/
+  584  lsd
+  585  ls
+  586  mv oc kubctl /usr/local/bin/
+  587  mv oc kubectl /usr/local/bin/
+  588  ls
+  589  cd ..
+  590  export noproxy = 192.168.229.135
+  591  export noproxy=192.168.229.135
+  592  oc cluster up --public-hostname=192.168.229.135 --routing-suffix=192.168.229.135.xip.io
+  593  https://192.168.229.135:8443
+  594  clear
+  595  cat /etc/containers/registries.conf 
+  596  cat  /etc/docker/daemon.json 
+  597  echo noproxy
+  598  echo $noproxy
+  599  clear
+  600  history >> history.txt
+End of 22nd Dec
+    1  vi /etc/sudoers
+    2  hostnamectl set-hostname centos
+    3  vi /etc/hostname
+    4  clear
+    5  ifconfig
+    6  vi /etc/hosts
+    7  clear
+    8  ls -ltr
+    9  hostname centos
+   10  ls -ltr
+   11  systemctl stop firewalld
+   12  systemctl disable firewalld
+   13  vi /etc/sysconfig/selinux
+   14  setenforce 0
+   15  vi /etc/fstab
+   16  swapoff -a
+   17  clear
+   18  init 6
+   19  clear
+   20  yum update -y
+   21  service NetworkManager status
+   22  ifconfig
+   23  init 6
+   24  vi /etc/sysconfig/network-scripts
+   25  cd /etc/sysconfig
+   26  ls
+   27  cd network-scripts
+   28  ls
+   29  vi ifcfg-ens33
+   30  init 6
+   31  yum update -y
+   32  ls -ltr
+   33  clear
+   34  init 0
+   35  hostnamectl set-hostname master
+   36  ifconfig
+   37  vi /etc/hosts
+   38  init 6
+   39  ifconfig
+   40  hostname
+   41  init 0
+   42  ifconfig ens33
+   43  vi /etc/hosts
+   44  timedatectl set-ntp true
+   45  date
+   46  clear
+   47  cat /etc/fstab
+   48  sestatus
+   49  yum install epel-release -y
+   50  yum update -y
+   51  yum install epel-release -y
+   52  yum update -y
+   53  init 0
+   54  vi /etc/hosts
+   55  cat /etc/hosts
+   56  ping master.192.168.229.135
+   57  ping master.192.168.229.135.xip,io
+   58  ping master.192.168.229.135.xip.io
+   59  yum update -y
+   60  yum install epel-release -y
+   61  yum update -y
+   62  yum install docker git -y
+   63  systemctl start docker ; sudo systemctl enable docker
+   64  systemctl status docker
+   65  docker version
+   66  docker run -i -t ubuntu /bin/bash
+   67  docker images
+   68  docker ps
+   69  docker stop tender_hopper
+   70  docker ps
+   71  docker ps -a
+   72  docker run -i -t ubuntu /bin/bash
+   73  docker ps
+   74  docker ps -a
+   75  docker images
+   76  docker rm f
+   77  docker ps -a
+   78  docker rm 0
+   79  docker ps -a
+   80  docker rm 4
+   81  docker ps -a
+   82  dcoker images
+   83  docker images
+   84  clear
+   85  docker run -d jpetazzo/clock
+   86  docker ps
+   87  docker exec -it  e sh
+   88  docker ps
+   89  docker stop e
+   90  docker ps
+   91  docker ps -a
+   92  docker start e
+   93  docker ps
+   94  docker stop e
+   95  docker ps -a
+   96  docker ps
+   97  docker start e
+   98  docker ps
+   99  docker logs e
+  100  clear
+  101  docker logs --tail 5 e
+  102  docker ps
+  103  docker run -d ubuntu sleep 1000000
+  104  clear
+  105  docker ps
+  106  docker ps -a
+  107  docker ps -q
+  108  docker kill $(docker ps -q)
+  109  docker ps
+  110  docker rm $(docker ps -aq)
+  111  docker ps -1
+  112  docker ps -a
+  113  clear
+  114  docker run -d ubuntu sleep 1000000
+  115  clear
+  116  docker ps 
+  117  docker exec b sh
+  118  docker ps 
+  119  docker log b
+  120  docker logs b
+  121  clear
+  122  docker ps -c
+  123  docker ps 
+  124  docker exec b sh
+  125  docker search tomcat
+  126  docker search zookeeper
+  127  clear
+  128  docker search xcode
+  129  docker search swift
+  130  docker search ios
+  131  docker search fastlane
+  132  docker imaghes
+  133  docker images
+  134  docker pull debian:jessie
+  135  docker images
+  136  docker pull debian:jessie
+  137  ls 
+  138  clear
+  139  docker ps
+  140  docker kill b
+  141  docker ps
+  142  docker ps -a
+  143  docker rm b
+  144  docker ps -a
+  145  mkdir myimage
+  146  cd myimage/
+  147  vi Dockerfile
+  148  cat Dockerfile 
+  149  docker build -t figlet:1.0 .
+  150  vi Dockerfile 
+  151  docker build -t figlet:1.0 .
+  152  docker images
+  153  docker ps
+  154  docker run figlet
+  155  clear
+  156  vi Dockerfile 
+  157  docker build -t centos-image:1:0 .
+  158  docker build -t centosimage:1:0 .
+  159  docker build -t centosimage:1.0 .
+  160  vi Dockerfile 
+  161  docker build -t centosimage:1.0 .
+  162  docker images
+  163  docker run centosimage
+  164  docker run centosimage:1.0
+  165  docker ps 
+  166  docker run i-t centosimage:1.0
+  167  docker run -it centosimage:1.0
+  168  docker ps 
+  169  docker run -d centosimage:1.0
+  170  docker kill 5
+  171  docker ps
+  172  docker run -it centosimage:1.0
+  173  docker ps -a
+  174  docker kill $(dicker ps -aq)
+  175  docker kill $(docker ps -aq)
+  176  docker ps -a
+  177  docker ps -aq
+  178  docker rm $(docker ps -aq)
+  179  docker ps -aq
+  180  docker run -it centosimage:1.0
+  181  docker ps
+  182  docker ps -a
+  183  docker search macos
+  184  ls
+  185  ls -a
+  186  clear
+  187  docker ps -a
+  188  docker rm 6
+  189  docker ps -a
+  190  docker images
+  191  cd ..
+  192  mkdir figlet-example
+  193  cd figlet-example/
+  194  vi Dockerfile
+  195  docker build -t figlet:2.0 .
+  196  docker images
+  197  docker run figlet:2.0
+  198  docker run figlet:2.0 figlet Shahid
+  199  docker run figlet:2.0 echo hello
+  200  clear
+  201  cd ..
+  202  mkdir copy-example
+  203  cd copy-example/
+  204  vi hello.c
+  205  ls
+  206  cd copy-example/
+  207  ls
+  208  vi hello.c
+  209  vi Dockerfile
+  210  cat Dockerfile 
+  211  docker build -t mycopy
+  212  docker build -t mycopy .
+  213  vi Dockerfile 
+  214  docker build -t mycopy .
+  215  docker run mycopy
+  216  docker images
+  217  docker build -t mycopy:1.0 .
+  218  docker images
+  219  vi hello.c
+  220  cat hello.c
+  221  cat Dockerfile 
+  222  dockert build -t helloimg:1.0 .
+  223  docker build -t helloimg:1.0 .
+  224  vi Dockerfile 
+  225  docker build -t helloimg:1.0 .
+  226  vi hello.c
+  227  cat hello.c 
+  228  vi hello.c 
+  229  cat hello.c 
+  230  docker build -t helloimg:1.0 .
+  231  vi hello.c 
+  232  docker build -t helloimg:1.0 .
+  233  dicker run helloimg:1.0
+  234  docker run helloimg:1.0
+  235  ls -ltr .hello.c.swp 
+  236  rm -fr .hello.c.swp 
+  237  vi hello.c 
+  238  clear
+  239  docker images
+  240  docker run -d tiktok jpetazzo/clock
+  241  docker run -d --name tiktok jpetazzo/clock
+  242  docker ps
+  243  docker inspect tiktok
+  244  docker inspect --format '{{json .NetworkSettings}}' ticktok
+  245  docker inspect --format '{{json .Created}}' ticktok
+  246  docker inspect --format '{{json .Created}}' ticktock
+  247  dock ps
+  248  docker ps
+  249  docker inspect --format '{{ json .Created }}' ticktok
+  250  docker inspect --format '{{ json .Created }}' tiktok
+  251  docker inspect --format '{{json .NetworkSettings}}' tiktok
+  252  docker inspect --format '{{json .NetworkSettings.IPAddress}}' tiktok
+  253  docker inspect --format '{{json .NetworkSettings.Netyworks.bridge.IPAddress}}' tiktok
+  254  docker inspect --format '{{json .NetworkSettings.Networks.bridge.IPAddress}}' tiktok
+  255  docker kill $(docker ps -aq)
+  256  docker kill $(docker ps -q)
+  257  docker ps
+  258  docker ps -a
+  259  docker rm $(docker ps -aq)
+  260  docker images
+  261  docker ps -a
+  262  docker run -d ngnix
+  263  docker run -d -P ngnix
+  264  docker run -d -P nginx
+  265  docker ps
+  266  ifconfig
+  267  clear
+  268  docker run -d -P nginx
+  269  docker ps
+  270  docker run -d -p 1000:80  nginx
+  271  docker ps
+  272  docker run -d -p 32768:80  nginx
+  273  cd ..
+  274  mkdir apache
+  275  cd apache/
+  276  vi Dockerfile
+  277  cd ..
+  278  ls
+  279  cd myimage/
+  280  ls
+  281  cat Dockerfile 
+  282  cd ..
+  283  cd copy-example/
+  284  cat Dockerfile 
+  285  cd ..
+  286  cd apache/
+  287  vi Dockerfile 
+  288  docker build -t apache .
+  289  vi Dockerfile 
+  290  cat Dockerfile 
+  291  vi Dockerfile 
+  292  docker build -t apache .
+  293  vi Dockerfile 
+  294  cat Dockerfile 
+  295  ls
+  296  cd apache/
+  297  vi Dockerfile 
+  298  docker build -t apache .
+  299  cd ..
+  300  ls
+  301  cd copy-example/
+  302  cat Dockerfile 
+  303  cd ..
+  304  cd apache/
+  305  cat Dockerfile 
+  306  clear
+  307  vi Dockerfile 
+  308  docker build -t apache .
+  309  cd .
+  310  cd ..
+  311  ls
+  312  cg copy-example/
+  313  cd copy-example/
+  314  ls
+  315  cat Dockerfile 
+  316  docker images
+  317  clear
+  318  docker images
+  319  docker build helloimg .
+  320  docker build -t helloimg .
+  321  clear
+  322  cat Dockerfile 
+  323  cd ..
+  324  cd apache/
+  325  rm Dockerfile 
+  326  ls
+  327  vi Dockerfile
+  328  cat Dockerfile 
+  329  docker build -t apache .
+  330  vi Dockerfile 
+  331  docker build -t apache .
+  332  vi Dockerfile 
+  333  docker build -t apache .
+  334  docker run -d apache
+  335  docker ps
+  336  docker ps -a
+  337  clear
+  338  vi Dockerfile 
+  339  docker build -t apache .
+  340  docker run -d apache
+  341  docker ps -a
+  342  docker ps
+  343  docker kill $(docker ps)
+  344  docker kill $(docker ps -q)
+  345  clear
+  346  docker ps
+  347  vi Dockerfile 
+  348  docker build -t apache .
+  349  docker run -d apache
+  350  docker ps
+  351  docker logs 9
+  352  vi Dockerfile 
+  353  docker build -t apache .
+  354  docker run -d apache
+  355  docker logs b
+  356  vi Dockerfile 
+  357  docker build -t apache .
+  358  docker run -d -p 1000 apache
+  359  docker logs b
+  360  docker logs f
+  361  docker ps 
+  362  apache logs f
+  363  docker logs f
+  364  docker ps -a
+  365  docker logs fa
+  366  docker run -d -p 1000:80 apache
+  367  docker ps
+  368  docker kill fa
+  369  docker ps
+  370  vi Dockerfile 
+  371  docker ps
+  372  docker kill ae
+  373  clear
+  374  docker build -t apache .
+  375  docker run -d -p 2000:80 apache
+  376  docker ps
+  377  docker run -d -P apache
+  378  docker ps 
+  379  history
+  380  docker ps 
+  381  docker kill $(docker ps -q)
+  382  docker rm $(docker ps -aq)
+  383  docker ps -a
+  384  docker images
+  385  cd ..
+  386  mkdir mytomcat
+  387  cd mytomcat
+  388  ls
+  389  wget https://atgensoft.com/training/Tomcat_Excercise_Data.zip
+  390  wget https://atgensoft.com/training/Tomcat_Excercise_Data.zip --no-check-certificate
+  391  wget https://atgensoft.com/training/Tomcat_Exercise_Data.zip --no-check-certificate
+  392  ls
+  393  unzip Tomcat_Exercise_Data.zip 
+  394  ls
+  395  rm -fr __MACOSX Tomcat_Exercise_Data.zip 
+  396  ls
+  397  cd Tomcat_Exercise_Data/
+  398  ls
+  399  cd ..
+  400  mv Tomcat_Exercise_Data/apache-tomcat-6.0.44
+  401  ls
+  402  mv Tomcat_Exercise_Data/apache-tomcat-6.0.44 .
+  403  ls
+  404  mv Tomcat_Exercise_Data/jre-8u45-linux-x64.rpm 
+  405  mv Tomcat_Exercise_Data/jre-8u45-linux-x64.rpm .
+  406  ls
+  407  rm -fr Tomcat_Exercise_Data/
+  408  ls
+  409  docker search centos6.6
+  410  clear
+  411  vi Dockerfile
+  412  ls
+  413  pwd
+  414  vi Dockerfile 
+  415  ls
+  416  docker build -t mytomcat .
+  417  docker search centos6
+  418  docker search centos6.6
+  419  vi Dockerfile 
+  420  cat Dockerfile 
+  421  vi Dockerfile 
+  422  docker build -t mytomcat .
+  423  vi Dockerfile 
+  424  docker build -t mytomcat .
+  425  vi Dockerfile 
+  426  ls
+  427  cd apache/
+  428  cat Dockerfile 
+  429  cd ..
+  430  cd mytomcat/
+  431  vi Dockerfile 
+  432  docker build -t mytomcat .
+  433  clear
+  434  vi Dockerfile 
+  435  docker build -t mytomcat .
+  436  clear
+  437  vi Dockerfile 
+  438  docker build -t mytomcat .
+  439  vi Dockerfile 
+  440  docker build -t mytomcat .
+  441  vi Dockerfile 
+  442  docker build -t mytomcat .
+  443  docker images
+  444  clear
+  445  vi Dockerfile 
+  446  docker build -t mytomcat .
+  447  vi Dockerfile 
+  448  docker build -t mytomcat .
+  449  clear
+  450  docker run -t -P mytomcat
+  451  docker run -d -P mytomcat
+  452  docker ps
+  453  clear
+  454  docker run -d -P mytomcat
+  455  docker logs 8d
+  456  vi Dockerfile 
+  457  docker build -t mytomcat .
+  458  docker run -d -P mytomcat
+  459  docker logs 29
+  460  clear
+  461  vi Dockerfile 
+  462  docker ps -a
+  463  docker kill $(docker ps -q)
+  464  docker ps
+  465  docker rm $(docker ps -aq)
+  466  docker ps -a
+  467  docker run -d -P mytomcat
+  468  docker ps
+  469  docker logs 7c
+  470  vi Dockerfile 
+  471  docker build -t mytomcat .
+  472  docker run -d -P mytomcat
+  473  docker ps
+  474  docker logs 33
+  475  vi Dockerfile 
+  476  docker build -t mytomcat .
+  477  docker run -d -P mytomcat
+  478  docker ps
+  479  docker logs 7f
+  480  vi Dockerfile 
+  481  docker build -t mytomcat .
+  482  clear
+  483  docker build -t mytomcat .
+  484  vi Dockerfile 
+  485  docker build -t mytomcat .
+  486  docker run -d -P mytomcat
+  487  docker ps
+  488  docker logs dcd
+  489  vi Dockerfile 
+  490  docker build -t mytomcat .
+  491  docker run -d -P mytomcat
+  492  docker ps
+  493  docker logs b1
+  494  clear
+  495  docker ps
+  496  docker kill b1
+  497  clear
+  498  docker rm $(docker ps -aq)
+  499  clear
+  500  docker ps -a
+  501  docker netwrok ls
+  502  cd ..
+  503  docker network ls
+  504  docker network create dev
+  505  docker network ls
+  506  docker run -d --name search --net deb tomcat
+  507  docker run -d --name search --net dev tomcat
+  508  docker ps
+  509  docker run -it --net dev apline sh
+  510  docker run -it --net dev alpine sh
+  511  docker kill $(docker ps -aq)
+  512  docker rm  $(docker ps -aq)
+  513  docker ps
+  514  docker ps -a
+  515  docker network ls
+  516  clear
+  517  docker run -d -P --net dev jpetazzo/trainingwheels
+  518  docker ps
+  519  docker run --net dev --name redis -d redis
+  520  docker ps
+  521  docker kill $(docker ps -q)
+  522  docker rm $(docker ps -aq)
+  523  docker ps -a
+  524  docker network rm dev
+  525  docker network ls
+  526  wget https://tomcat.apache.org/tomcat-7.0-doc/appdev/sample/sample.war
+  527  chmod 777 sample.war
+  528  docker run -d -P -v /root/sample.war:/home/tom/webapps/sample.war mytomcat
+  529  docker ps
+  530  clear
+  531  ls
+  532  mkdir examples
+  533  mv apche examples
+  534  mv apache examples
+  535  mv copy-example examples
+  536  mv myimage examples
+  537  mv mytomcat examples/
+  538  cd examples/
+  539  ls
+  540  git init
+  541  ls 
+  542  ls -a
+  543  echo "# Openshift" >> README.md
+  544  ls
+  545  git add README.md
+  546  git commit -m "First commit"
+  547  git config --global user.email "you@example.com"
+  548  git config --global user.email "sahidakhtar1@gmail.com"
+  549  C
+  550   git config --global user.name "Sahid"
+  551  git status
+  552  git add .
+  553  git status
+  554  clear
+  555  git commit -m "Added exmaples"
+  556  git remote add origin https://github.com/sahidakhtar1/openshift.git
+  557  git branch -M main
+  558  git push -u origin main
+  559  clear
+  560  docker ps -a
+  561  docker rm 56
+  562  docker kill 56
+  563  docker rm 56
+  564  docker images
+  565  clear
+  566  docker ps
+  567  docker ps -a
+  568  clear
+  569  sudo mkdir -p /etc/docker /etc/containers
+  570  vi /etc/containers/registries.conf 
+  571  vi /etc/docker/daemon.json 
+  572  systemctl restart docker
+  573  echo "net.ipv4.ip_forward = 1" | tee -a /etc/sysctl.conf
+  574  sysctl -p
+  575  wget https://github.com/openshift/origin/releases/download/v3.11.0/openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz
+  576  ls
+  577  git add .
+  578  git commit -m "Download openshift file"
+  579  git push
+  580  clear
+  581  tar xvf openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz 
+  582  ls
+  583  cd openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit/
+  584  lsd
+  585  ls
+  586  mv oc kubctl /usr/local/bin/
+  587  mv oc kubectl /usr/local/bin/
+  588  ls
+  589  cd ..
+  590  export noproxy = 192.168.229.135
+  591  export noproxy=192.168.229.135
+  592  oc cluster up --public-hostname=192.168.229.135 --routing-suffix=192.168.229.135.xip.io
+  593  https://192.168.229.135:8443
+  594  clear
+  595  cat /etc/containers/registries.conf 
+  596  cat  /etc/docker/daemon.json 
+  597  echo noproxy
+  598  echo $noproxy
+  599  clear
+  600  history >> history.txt
+  601  cat history.txt 
+  602  clear
+  603  oc login -u system:admin -n oc-tomcat
+  604  oc adm policy add-scc-to-user anyuid -z oc-tomcat
+  605  docker images
+  606  clear
+  607  docker tag mytomcat 172.30.1.1:5000/oc-tomcat/mytomcat
+  608  oc login --username=system --password=admin
+  609  oc whoami --show-token
+  610  docker login https://172.30.1.1:5000
+  611  docker push mytomcat 172.30.1.1:5000/oc-tomcat/mytomcat
+  612  docker push 172.30.1.1:5000/oc-tomcat/mytomcat
+  613  oc adm policy add-scc-to-user anyuid -z aph
+  614  oc login -u system:admin -n oc-tomcat
+  615  oc adm policy add-scc-to-user anyuid -z aph
+  616  docker images
+  617  docker tag apache 172.30.1.1:5000/aph/apache
+  618  oc login --username=system --password=admin
+  619  oc whoami --show-token
+  620  docker login https://172.30.1.1:5000
+  621  docker push 172.30.1.1:5000/aph/apache
+  622  history
+  623  clear
+  624  history
+  625  clear
+  626  docker imageas
+  627  docker images
+  628  ls
+  629  git status
+  630  cd ..
+  631  wget https://github.com/openshift/source-to-image/releases/download/v1.3.1/source-to-image-v1.3.1-a5a77147-linux-amd64.tar.gz
+  632  tar -xvzf source-to-image-v1.3.1-a5a77147-linux-amd64.tar.gz 
+  633  mv s2i /usr/local/bin/
+  634  git status
+  635  git clone https://github.com/sagarhere4u/s2iapache.git
+  636  cd s2iapache
+  637  ls
+  638  docker build -t myapache .
+  639  s2i build . myapache newapache
+  640  docker run -d -P newapache
+  641  docker ps
+  642  docker ps -l
+  643  clear
+  644  docker images
+  645  oc login -u system:admin -n oc-tomcat
+  646  oc login -u system:admin -n aph
+  647  oc adm policy add-scc-to-user anyuid -z aph
+  648  docker tag newapache 172.30.1.1:5000/aph/newapache
+  649  docker images
+  650  oc login --username=system --password=admin
+  651  oc whiami --show-token
+  652  docker login 172.30.1.1:5000
+  653  oc whoami --show-token
+  654  docker login 172.30.1.1:5000
+  655  docker push 172.30.1.1:5000/aph/newapache
+  656  ls
+  657  cd ..
+  658  ls
+  659  cd examples/
+  660  ls
+  661  git status
+  662  git add .
+  663  ls
+  664  la -a
+  665  ls -a
+  666  ls -l
+  667  git add .
+  668  rm openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz 
+  669  clear
+  670  git add .
+  671  git status
+  672  git add history.txt
+  673  git add openshift.local.clusterup/
+  674  git status
+  675  echo "End of 22nd Dec" >> history.txt 
+  676* cat history.txt
+  677  history >> history.txt 
